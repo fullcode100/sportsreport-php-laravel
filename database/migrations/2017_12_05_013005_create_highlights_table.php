@@ -14,7 +14,11 @@ class CreateHighlightsTable extends Migration
     public function up()
     {
         Schema::create('highlights', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('highlight_id');
+            $table->string('highlight_title', 240);
+            $table->string('origin_url', 300);
+            $table->text('embed_data');
+            $table->text('highlight_description')->nullable();
             $table->timestamps();
         });
     }

@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'highlightFeed@homePageFeed');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Create new category form and validation route
+Route::get('preview-post', function(){
+	return view('previewPostForm');
+});
+
+Route::post('/preview-post-output','interpreter@preview_embeded_post');
