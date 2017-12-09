@@ -4,9 +4,12 @@
 
 <div class="container">
 	<div class="row">
+
+		@include('common.errors')
+
 			<div class="panel-body">				
-				<!-- Edit Source Form -->
-				<form action="/preview-post-output" method="POST" class="form-horizontal">
+				<!-- Preview a post of embeded content -->
+				<form action="/preview-post-output" autocomplete="off" method="POST" class="form-horizontal">
 					{{ csrf_field() }}
 
 					<!-- Edit Source Info Fields -->
@@ -15,6 +18,9 @@
 
 							<select name="content_source">
 							  <option value="instagram">instagram</option>
+							  <option value="youtube">YouTube</option>
+							  <option value="twitter">Twitter</option>
+							  <option value="streamable">Streamable</option>
 							  <option value="other">other</option>
 							</select>
   						</div>
@@ -35,7 +41,7 @@
 						</div>
 					</div>
 				</form>
-				<!-- End Edit Source Form -->
+				<!-- End Preview a post of embeded content -->
 			</div>
 		</div>
 		</div>

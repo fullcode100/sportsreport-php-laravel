@@ -13,4 +13,5 @@ class highlight extends Model
     	return $this->orderBy('highlight_id','desc')->take(50)->get();
 
     }
+
 }

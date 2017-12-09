@@ -23,3 +23,4 @@ Route::get('preview-post', function(){
 });
 
 Route::post('/preview-post-output','interpreter@preview_embeded_post');
+Route::post('/add-new-highlight','interpreter@insert_new_highlight');
