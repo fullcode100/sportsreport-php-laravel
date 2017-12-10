@@ -12,15 +12,23 @@
 */
 
 Route::get('/', 'highlightFeed@homePageFeed');
+Route::get('/highlight/{post_id}','highlightFeed@singlePost');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Create new category form and validation route
-Route::get('preview-post', function(){
-	return view('previewPostForm');
+// All routes in the group are protected, only authed user are allowed to access them
+Route::group(['middleware' => ['auth']], function () {
+
+	//Preview the post, if its good allow the user to add it to the database.
+	Route::get('preview-post', function(){
+		return view('previewPostForm');
+	});
+
+	Route::post('/preview-post-output','interpreter@preview_embeded_post');
+	Route::post('/add-new-highlight','interpreter@insert_new_highlight');
+	Route::post('/delete-highlight','interpreter@delete_highlight');
+
 });
 
-Route::post('/preview-post-output','interpreter@preview_embeded_post');
-Route::post('/add-new-highlight','interpreter@insert_new_highlight');

@@ -21,13 +21,16 @@ class interpreter extends Controller
 				$embed_html_response = $this->instagram_embed($source_url);
 				break;
 			case 'youtube':
-				$embed_html_response = $this->youtubeEmbed($source_url);
+				$embed_html_response = $this->youtube_embed($source_url);
 				break;
 			case 'twitter':
 				$embed_html_response = $this->twitter_embed($source_url);
 				break;
 			case 'streamable':
 				$embed_html_response = $this->streamable_embed($source_url);
+				break;
+			case 'gfycat':
+				$embed_html_response = $this->gfycat_embed($source_url);
 				break;
 			default:
 				$embed_html_response = null;
@@ -73,7 +76,7 @@ class interpreter extends Controller
 		return $streamable_json_response->html;
 	}
 
-	private function youtubeEmbed($youtube_url){
+	private function youtube_embed($youtube_url){
 		$strip_youtube_url = trim(substr($youtube_url, strpos($youtube_url, '?v=') + 3));
 
 		$youtube_embed_url = 'https://www.youtube.com/embed/' . $strip_youtube_url;
@@ -81,6 +84,16 @@ class interpreter extends Controller
 		$youtube_formed_embed_code = '<iframe width="800" height="450" src="' . $youtube_embed_url . '" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>';
 
 		return $youtube_formed_embed_code;
+	}
+
+	private function gfycat_embed($gfycat_url){
+		$strip_gfycat_url = trim(substr($gfycat_url, strpos($gfycat_url, 'detail/') + 7));
+
+		$gfycat_embed_url = 'https://gfycat.com/ifr/' . $strip_gfycat_url;
+
+		$gfycat_formed_embed_code = '<div style="position:relative;padding-bottom:54%"><iframe src="' . $gfycat_embed_url . '" frameborder="0" scrolling="no" width="100%" height="100%" style="position:absolute;top:0;left:0" allowfullscreen></iframe></div>';
+
+		return $gfycat_formed_embed_code;
 	}
 
 
@@ -122,7 +135,24 @@ class interpreter extends Controller
 
 
 
-		highlight::insert(['highlight_title' => $add_highlight_request->highlight_title, 'origin_url' => $add_highlight_request->content_origin_url, 'embed_data' => $embed_html_data,'highlight_description' => $add_highlight_request->highlight_description, 'service_origin' => $add_highlight_request->content_origin_source]);
+		highlight::insert(['highlight_title' => $add_highlight_request->highlight_title, 'origin_url' => $add_highlight_request->content_origin_url, 'embed_data' => $embed_html_data,'highlight_description' => $add_highlight_request->highlight_description, 'service_origin' => $add_highlight_request->content_origin_source,'created_at' => date('Y-m-d H:i:s'),'updated_at' => date('Y-m-d H:i:s')]);
+
+		return redirect('/');
+	}
+
+	public function delete_highlight(Request $remove_highlight_request){
+		
+		$remove_highlight_validation = Validator::make($remove_highlight_request->all(), [
+			'highlight_unique_id'=>'required|exists:highlights,highlight_id',
+		]);
+
+		if ($remove_highlight_validation->fails()) {
+			return back()
+				->withInput()
+				->withErrors($remove_highlight_validation);
+		}
+
+		highlight::where('highlight_id','=',$remove_highlight_request->highlight_unique_id)->delete();
 
 		return redirect('/');
 	}

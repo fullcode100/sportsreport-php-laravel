@@ -21,6 +21,7 @@
 							  <option value="youtube">YouTube</option>
 							  <option value="twitter">Twitter</option>
 							  <option value="streamable">Streamable</option>
+							  <option value="gfycat">Gfycat</option>
 							  <option value="other">other</option>
 							</select>
   						</div>

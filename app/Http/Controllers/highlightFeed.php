@@ -18,4 +18,10 @@ class highlightFeed extends Controller
 
 	}
 
+	public function singlePost($post_id){
+		$single_post_data = highlight::where('highlight_id','=',$post_id)->first();
+
+		return view('singleHighlight',['highlight_data' => $single_post_data]);
+	}
+
 }
