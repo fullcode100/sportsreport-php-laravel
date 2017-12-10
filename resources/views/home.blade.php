@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <li><a href="/preview-post">Add New Highlight</a></li>
                 </div>
             </div>
         </div>

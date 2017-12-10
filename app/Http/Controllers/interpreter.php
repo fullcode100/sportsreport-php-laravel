@@ -32,6 +32,12 @@ class interpreter extends Controller
 			case 'gfycat':
 				$embed_html_response = $this->gfycat_embed($source_url);
 				break;
+			case 'imgur':
+				$embed_html_response = $this->imgur_embed($source_url);
+				break;
+			case 'static':
+				$embed_html_response = $this->static_embed($source_url);
+				break;
 			default:
 				$embed_html_response = null;
 		}
@@ -96,12 +102,27 @@ class interpreter extends Controller
 		return $gfycat_formed_embed_code;
 	}
 
+	private function imgur_embed($imgur_url){
+		$strip_imgur_url = trim(substr($imgur_url, strpos($imgur_url, 'imgur.com/') + 10));
+
+		$imgur_formed_embed_code = '<blockquote class="imgur-embed-pub" lang="en" data-id="' . $strip_imgur_url . '"><a href="' . $imgur_url . '//imgur.com/gxcvDID">Buffalo Bills take the field in blizzard conditions</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>';
+
+		return $imgur_formed_embed_code;
+	}
+
+	private function static_embed($static_url){
+
+		$imgur_formed_embed_code = '<img src="' . $static_url . '" class="img-responsive">';
+
+		return $imgur_formed_embed_code;
+	}
+
 
 	//Takes in data from the previewed post form. Validates it, passes it off to the mediaSource function.
 	public function preview_embeded_post(Request $preview_embed_content_request){
 		
 		$embeded_content_validation = Validator::make($preview_embed_content_request->all(), [
-			'content_source'=>'required|in:instagram,twitter,imgur,gfycat,youtube,streamable',
+			'content_source'=>'required|in:instagram,twitter,imgur,gfycat,youtube,streamable,static',
 			'content_url' => 'required|url',
 		]);
 
@@ -117,7 +138,7 @@ class interpreter extends Controller
 	public function insert_new_highlight(Request $add_highlight_request){
 		
 		$embeded_content_validation = Validator::make($add_highlight_request->all(), [
-			'content_origin_source'=>'required|in:instagram,twitter,imgur,gfycat,youtube,streamable',
+			'content_origin_source'=>'required|in:instagram,twitter,imgur,gfycat,youtube,streamable,static',
 			'content_origin_url' => 'required|url',
 			'highlight_title' => 'required|string',
 			'highlight_description' => 'nullable|string',
