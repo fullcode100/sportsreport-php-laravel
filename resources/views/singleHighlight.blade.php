@@ -56,5 +56,8 @@
 			</div>
 		</div>
 	</div>
+@endsection
 
+@section('title')
+	{{$highlight_data->highlight_title}}
 @endsection

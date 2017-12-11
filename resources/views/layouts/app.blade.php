@@ -8,7 +8,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!--Gets page title if one is set. Defaults otherwise.-->
+        <title>
+            @if(View::hasSection('title'))
+                @yield('title') - {{ config('app.name', 'Sports Highlights and Photography') }}
+            @else
+                {{ config('app.name', 'Sports Highlights and Photography') }}
+            @endif
+        </title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -23,14 +30,14 @@
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
                         <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="icon-bar">Some</span>
+                        <span class="icon-bar">Nav</span>
+                        <span class="icon-bar">Items</span>
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand title-link" href="{{ url('/') }}">
+                        <h1>{{ config('app.name', 'Laravel') }}</h1>
                     </a>
                 </div>
 

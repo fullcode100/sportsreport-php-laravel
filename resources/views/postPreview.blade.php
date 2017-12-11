@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Preview New Post')
+
 @section('content')
 
 <div class="container">

@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
+@section('title', 'The Latest and Greatest Highlights from the Sports World')
+
 @section('content')
 
 	<div class="container">
 		<div class="row">
 			@foreach ($feed_data as $feed_item)
 				<div id="{{$feed_item->highlight_id}}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 single-post">
-					<h2>{{$feed_item->highlight_title}}</h2>
+					<h2><a href="/highlight/{{$feed_item->highlight_id}}" class="title-link">{{$feed_item->highlight_title}}</a></h2>
 					<div>
 						{!!$feed_item->embed_data!!}
 					</div>

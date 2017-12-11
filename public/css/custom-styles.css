@@ -1,5 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo:400,400i,700|Quicksand:400,500,700');
+
+/*
+font-family: 'Arvo', serif;
+font-family: 'Quicksand', sans-serif;
+*/
+
+h1,h3,h5{
+	font-family: 'Arvo', serif;
+}
+
+h2,h4,h6,p{
+	font-family: 'Quicksand', sans-serif;
+}
+
 body{
 	background: #f4f4f4;
+}
+
+.navbar-default {
+    border-color: #e1a708
+}
+
+.navbar-brand{
+	height: auto;
+}
+
+.navbar-brand>h1{
+	margin: 11px 0;
 }
 
 .single-post:hover{
@@ -11,6 +38,22 @@ body{
 	-moz-transition: all .5s ease-out;
 	-o-transition: all .5s ease-out;
 	transition: all .5s ease-out;
+}
+
+.title-link{
+	color: #636b6f !important;
+	-webkit-transition: all .33s ease-out;
+	-moz-transition: all .33s ease-out;
+	-o-transition: all .33s ease-out;
+	transition: all .33s ease-out;
+}
+
+.title-link:hover{
+	color: #e1a708 !important;
+	-webkit-transition: all .33s ease-in;
+	-moz-transition: all .33s ease-in;
+	-o-transition: all .33s ease-in;
+	transition: all .33s ease-in;
 }
 
 .share-btn{

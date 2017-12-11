@@ -36,7 +36,7 @@
 					
 					<!-- Update Source Button -->
 					<div class="form-group">
-						<div class="col-sm-6">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
 							<button type="submit" class="btn btn-default">
 								<i class="fa fa-plus"></i> Preview Embeded Content
 							</button>
