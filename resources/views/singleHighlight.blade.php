@@ -21,6 +21,13 @@
 				<hr>
 			</div>
 
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+				@foreach($highlight_data->post_tags as $post_tag)
+					<a href="/tagged/{{$post_tag['tag_url']}}" class="badge badge-info">{{$post_tag['tag_read']}}</a>
+				@endforeach
+			</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 			@if(Auth::User())
 				<form action="/delete-highlight" method="POST" class="form-horizontal" onsubmit="return confirm('Are you sure you want to delete this?');">
 					{{ csrf_field() }}
@@ -29,23 +36,18 @@
 					<p class="text-warning">There is no going back from this!</p>
 				</form>
 			@endif
+			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<div id="disqus_thread"></div>
 				<script>
-
-				/**
-				*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-				*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-				/*
 				var disqus_config = function () {
-				this.page.url = {{ url('/') }}/{{$highlight_data->highlight_id}};  // Replace PAGE_URL with your page's canonical URL variable
-				this.page.identifier = {{$highlight_data->highlight_id}}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+				this.page.url = "{{ url('/') }}/{{$highlight_data->highlight_id}}";
+				this.page.identifier = {{$highlight_data->highlight_id}};
 				};
-				*/
-				(function() { // DON'T EDIT BELOW THIS LINE
+				(function() {
 				var d = document, s = d.createElement('script');
 				s.src = 'https://highlightsarena-1.disqus.com/embed.js';
 				s.setAttribute('data-timestamp', +new Date());

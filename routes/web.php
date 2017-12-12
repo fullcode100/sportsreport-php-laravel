@@ -13,6 +13,7 @@
 
 Route::get('/', 'highlightFeed@homePageFeed');
 Route::get('/highlight/{post_id}','highlightFeed@singlePost');
+Route::get('/tagged/{tag_url}','highlightFeed@highlightsByTag');
 
 //Auth::routes();
 
