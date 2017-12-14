@@ -21,23 +21,40 @@
 				<hr>
 			</div>
 
+			@if(count($highlight_data->post_tags) != 0)
 			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-				@foreach($highlight_data->post_tags as $post_tag)
-					<a href="/tagged/{{$post_tag['tag_url']}}" class="badge badge-info">{{$post_tag['tag_read']}}</a>
-				@endforeach
+				<p>Tagged:
+					@foreach($highlight_data->post_tags as $post_tag)
+						<a href="/tagged/{{$post_tag['tag_url']}}" class="badge badge-info">{{$post_tag['tag_read']}}</a>
+					@endforeach
+				</p>
 			</div>
-
-			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-			@if(Auth::User())
-				<form action="/delete-highlight" method="POST" class="form-horizontal" onsubmit="return confirm('Are you sure you want to delete this?');">
-					{{ csrf_field() }}
-					<input type="hidden" name="highlight_unique_id" value="{{$highlight_data->highlight_id}}">
-					<button type="submit" class="btn btn-danger">Delete This Highlight</button>
-					<p class="text-warning">There is no going back from this!</p>
-				</form>
 			@endif
-			</div>
 		</div>
+
+			@if(Auth::User())
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<form action="/new-tag-set" method="POST" class="form-horizontal">
+						{{ csrf_field() }}
+						<input type="hidden" name="highlight_id" value="{{$highlight_data->highlight_id}}">
+						Tags: <input type="text" name="tags" maxlength="100">
+						<button type="submit" class="btn btn-success">Add Tags</button>
+						<p class="text-warning">Maximum 100 characters. Tags are seperated with commas.</p>
+					</form>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+					<form action="/delete-highlight" method="POST" class="form-horizontal" onsubmit="return confirm('Are you sure you want to delete this?');">
+						{{ csrf_field() }}
+						<input type="hidden" name="highlight_unique_id" value="{{$highlight_data->highlight_id}}">
+						<button type="submit" class="btn btn-danger">Delete This Highlight</button>
+						<p class="text-warning">There is no going back from this!</p>
+					</form>
+				</div>
+			</div>
+			@endif
+		
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

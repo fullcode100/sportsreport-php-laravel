@@ -19,4 +19,8 @@ class tag_model extends Model
 
     	return $post_ids_for_tag;
     }
+
+    protected function insertNewTags($post_id,$friendly_tag,$url_tag){
+    	$this->insert(['post_id' => $post_id,'tag_read' => $friendly_tag,'tag_url' => $url_tag]);
+    }
 }

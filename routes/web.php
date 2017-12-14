@@ -46,5 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/add-new-highlight','interpreter@insert_new_highlight');
 	Route::post('/delete-highlight','interpreter@delete_highlight');
 
+    Route::post('/new-tag-set','tagging@tagTranslator');
+
 });
 
