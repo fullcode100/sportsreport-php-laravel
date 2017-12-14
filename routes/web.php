@@ -13,6 +13,7 @@
 
 Route::get('/', 'highlightFeed@homePageFeed');
 Route::get('/highlight/{post_id}','highlightFeed@singlePost');
+Route::get('/tagged/{tag_url}','highlightFeed@highlightsByTag');
 
 //Auth::routes();
 
@@ -44,6 +45,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/preview-post-output','interpreter@preview_embeded_post');
 	Route::post('/add-new-highlight','interpreter@insert_new_highlight');
 	Route::post('/delete-highlight','interpreter@delete_highlight');
+
+    Route::post('/new-tag-set','tagging@tagTranslator');
 
 });
 
