@@ -23,4 +23,12 @@ class tag_model extends Model
     protected function insertNewTags($post_id,$friendly_tag,$url_tag){
     	$this->insert(['post_id' => $post_id,'tag_read' => $friendly_tag,'tag_url' => $url_tag]);
     }
+
+    public function mostPopularTags(){
+    	$tag_data = $this->orderby('unique_tag_id','DESC')->take(100)->get();
+    	$grouped_tags = $tag_data->groupBy('tag_url');
+    	$grouped_tags = $grouped_tags->toArray();
+    	
+    	return arsort($grouped_tags);
+    }
 }
