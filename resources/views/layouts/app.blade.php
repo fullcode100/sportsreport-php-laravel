@@ -27,7 +27,7 @@
     <div class="white-container">
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <a class="title-link site-branding" href="{{ url('/') }}"><img src="{{$random_header_image}}" class="img-responsive corner-stone-image">
+                <a class="title-link site-branding" href="{{ url('/') }}"><img src="{{ url('/') }}{{$random_header_image}}" class="img-responsive corner-stone-image">
                 <h1>{{ config('app.name', 'Highlights Arena') }}</h1></a>
             </div>
         </div>

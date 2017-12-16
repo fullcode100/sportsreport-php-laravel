@@ -20,6 +20,7 @@ class navigationServiceProvider extends ServiceProvider
             $image_directory = './images/header-images/';
             $header_images = glob($image_directory.'*.png');
             $selected_image = $header_images[array_rand($header_images)];
+            $selected_image = ltrim($selected_image, '.');
 
             $view->with('random_header_image',$selected_image);
         });
