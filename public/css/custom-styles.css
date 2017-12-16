@@ -9,7 +9,7 @@ h1,h3,h5{
 	font-family: 'Arvo', serif;
 }
 
-h2,h4,h6,p{
+h2,h4,h6,p,ul,li{
 	font-family: 'Quicksand', sans-serif;
 }
 
@@ -17,8 +17,13 @@ body{
 	background: #f4f4f4;
 }
 
+.white-container{
+	background-color: #ffffff;
+}
+
 .navbar-default {
-    border-color: #e1a708
+    border-bottom: 1px solid #aa9988;
+    background-color: #ffffff;
 }
 
 .navbar-brand{
@@ -27,6 +32,16 @@ body{
 
 .navbar-brand>h1{
 	margin: 11px 0;
+}
+
+.center-nav-links{
+	margin: 0 auto;
+}
+
+.corner-stone-image{
+	max-height: 420px;
+    display: block;
+    margin: 0px auto 4px auto;
 }
 
 .single-post:hover{
@@ -40,6 +55,10 @@ body{
 	transition: all .5s ease-out;
 }
 
+.site-branding{
+	text-align: center;
+}
+
 .title-link{
 	color: #636b6f !important;
 	-webkit-transition: all .33s ease-out;
@@ -50,10 +69,20 @@ body{
 
 .title-link:hover{
 	color: #e1a708 !important;
+	text-decoration: none;
 	-webkit-transition: all .33s ease-in;
 	-moz-transition: all .33s ease-in;
 	-o-transition: all .33s ease-in;
 	transition: all .33s ease-in;
+}
+
+.nav-link{
+	color: #aa9988;
+	font-weight: bold;
+}
+
+.nav-link:hover{
+	color: #e1a708;
 }
 
 .share-btn{
@@ -70,4 +99,102 @@ body{
 
 .pointer-cursor:hover{
 	cursor: pointer;
+}
+
+/*Custom Padding*/
+.pvs{
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.pts{
+	padding-top: 4px;
+}
+
+.ptm{
+	padding-top: 8px;
+}
+
+.ptl{
+	padding-top: 16px;
+}
+
+.pvm{
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.pvl{
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+.phs{
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.phm{
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.phl{
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.ptn{
+	padding-top: 0;
+}
+
+.obn{
+	padding-bottom: 0;
+}
+
+/*Custom Margins*/
+.mvs{
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.mvm{
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.mvl{
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.mhs{
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+.mhm{
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+.mhl{
+	margin-left: 16px;
+	margin-right: 16px;
+}
+
+.mtn{
+	margin-top: 0;
+}
+
+.mbn{
+	margin-bottom: 0;
+}
+
+.mbm{
+	margin-bottom: 8px;
+}
+
+.mbl{
+	margin-bottom: 16px;
 }
