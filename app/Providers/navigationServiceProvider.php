@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\tag_model;
 
 class navigationServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,7 @@ class navigationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //Grabs all images from header image folder. Displayers one in header of site.
         view()->composer('layouts.app',function($view){
 
             $image_directory = './images/header-images/';

@@ -39,12 +39,12 @@
                 </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav center-nav-links">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <!--<li class="nav-item active">
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                          </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Features</a>
-                        </li>
+                        </li>-->
                         @guest
                             <li>&nbsp;</li>
                         @else
