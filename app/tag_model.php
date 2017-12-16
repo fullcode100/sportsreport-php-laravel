@@ -26,9 +26,10 @@ class tag_model extends Model
 
     public function mostPopularTags(){
     	$tag_data = $this->orderby('unique_tag_id','DESC')->take(100)->get();
-    	$grouped_tags = $tag_data->groupBy('tag_url');
-    	$grouped_tags = $grouped_tags->toArray();
+
+        $tag_data = $tag_data->has('tag_url','>=',1);
+    	dd($tag_data);
     	
-    	return arsort($grouped_tags);
+    	return arsort($tag_data);
     }
 }
