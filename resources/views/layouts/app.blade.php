@@ -69,6 +69,12 @@
     </div>
 
     @yield('content')
+
+    <div class="container" id="footer">
+        <div class="col-xs-12 col-xs-12 col-md-12 col-lg-12">
+            <p class="text-center">&copy; 2017 - Highlights Arena</p>
+        </div>
+    </div>
     </div>
 
     <!-- Scripts -->
@@ -83,5 +89,16 @@
             $('[data-toggle="popover"]').popover()
         });
     </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-32585378-8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-32585378-8');
+    </script>
+
 </body>
 </html>
