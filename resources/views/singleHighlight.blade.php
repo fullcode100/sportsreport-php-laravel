@@ -80,3 +80,7 @@
 @section('title')
 	{{$highlight_data->highlight_title}}
 @endsection
+
+@section('meta_descriptor')
+{{$highlight_data->highlight_title}}. {{$highlight_data->highlight_description}} - Posted: @if($highlight_data->created_at == null) Unknown @else {{$highlight_data->created_at}} @endif
+@endsection

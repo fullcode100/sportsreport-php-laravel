@@ -9,17 +9,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!--Gets page title if one is set. Defaults otherwise.-->
-        <title>
-            @if(View::hasSection('title'))
-                @yield('title') - {{ config('app.name', 'Sports Highlights and Photography') }}
-            @else
-                {{ config('app.name', 'Sports Highlights and Photography') }}
-            @endif
+        <title>@if(View::hasSection('title')) @yield('title') - {{ config('app.name', 'Sports Highlights and Photography') }} @else {{ config('app.name', 'Sports Highlights and Photography') }}@endif
         </title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="{{ asset('css/custom-styles.css') }}" rel="stylesheet">
+
+    <meta name="description=" content="@if(View::hasSection('meta_descriptor')) @yield('meta_descriptor') @else Highlights Arena houses some of the best sports highlights and photos from around the internet. We collect clips of everything ranging from amazing NFL touchdowns, the craziest college plays, biggest MLB homeruns, great goalie saves in the NHL, and awe inspiring dunks in the NBA.' @endif">
 </head>
 <body>
     <div id="app">
@@ -90,6 +87,9 @@
         });
     </script>
 
+    @if(config('app.debug') || Auth::check())
+    <!--Google Analytics was not loaded. Either you are in debug mode or you are logged in as an administrator.-->
+    @else
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-32585378-8"></script>
     <script>
@@ -99,6 +99,6 @@
 
       gtag('config', 'UA-32585378-8');
     </script>
-
+    @endif
 </body>
 </html>

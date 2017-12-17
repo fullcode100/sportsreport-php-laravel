@@ -20,7 +20,7 @@ class highlightFeed extends Controller
 	}
 
 	public function singlePost($post_id){
-		$single_post_data = highlight::where('highlight_id','=',$post_id)->first();
+		$single_post_data = highlight::where('highlight_id','=',$post_id)->firstOrFail();
 
 		$post_tags = tag_model::getPostTags($post_id);
 
