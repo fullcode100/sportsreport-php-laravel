@@ -14,6 +14,7 @@ class interpreter extends Controller
 
 	private $valid_sources = ["instagram","twitter","imgur","gfycat","youtube"];
 
+	//Determines the media conent source and parses the embeding for that given source.
 	public function mediaSource($source_type,$source_url){
 
 		switch($source_type){
@@ -154,9 +155,9 @@ class interpreter extends Controller
 		$embed_html_data = $this->mediaSource($add_highlight_request->content_origin_source,$add_highlight_request->content_embed_html);
 		$embed_html_data = $embed_html_data->post_preview_data['raw_embed_html'];
 
+		$slug_seo_url = $this->create_url_slug($add_highlight_request->highlight_title);
 
-
-		highlight::insert(['highlight_title' => $add_highlight_request->highlight_title, 'origin_url' => $add_highlight_request->content_origin_url, 'embed_data' => $embed_html_data,'highlight_description' => $add_highlight_request->highlight_description, 'service_origin' => $add_highlight_request->content_origin_source,'created_at' => date('Y-m-d H:i:s'),'updated_at' => date('Y-m-d H:i:s')]);
+		highlight::insert(['highlight_title' => $add_highlight_request->highlight_title, 'origin_url' => $add_highlight_request->content_origin_url, 'embed_data' => $embed_html_data,'highlight_description' => $add_highlight_request->highlight_description, 'url_slug' => $slug_seo_url,'service_origin' => $add_highlight_request->content_origin_source,'created_at' => date('Y-m-d H:i:s'),'updated_at' => date('Y-m-d H:i:s')]);
 
 		return redirect('/');
 	}
@@ -176,5 +177,15 @@ class interpreter extends Controller
 		highlight::where('highlight_id','=',$remove_highlight_request->highlight_unique_id)->delete();
 
 		return redirect('/');
+	}
+
+	protected function create_url_slug($title_or_string){
+		//Honestly... Thanks someone on Stackoverflow for just doing all this regex to make friendly URL https://stackoverflow.com/questions/11330480/strip-php-variable-replace-white-spaces-with-dashes#
+		$title_or_string = strtolower($title_or_string);
+		$title_or_string = preg_replace("/[^a-z0-9_\s-]/", "", $title_or_string);
+		$title_or_string = preg_replace("/[\s-]+/", " ", $title_or_string);
+		$title_or_string = preg_replace("/[\s_]/", "-", $title_or_string);
+
+		return $title_or_string;
 	}
 }
