@@ -9,17 +9,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!--Gets page title if one is set. Defaults otherwise.-->
-        <title>
-            @if(View::hasSection('title'))
-                @yield('title') - {{ config('app.name', 'Sports Highlights and Photography') }}
-            @else
-                {{ config('app.name', 'Sports Highlights and Photography') }}
-            @endif
+        <title>@if(View::hasSection('title')) @yield('title') - {{ config('app.name', 'Sports Highlights and Photography') }} @else {{ config('app.name', 'Sports Highlights and Photography') }}@endif
         </title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="{{ asset('css/custom-styles.css') }}" rel="stylesheet">
+
+    <meta name="description=" content="@if(View::hasSection('meta_descriptor')) @yield('meta_descriptor') @else Highlights Arena houses some of the best sports highlights and photos from around the internet. We collect clips of everything ranging from amazing NFL touchdowns, the craziest college plays, biggest MLB homeruns, great goalie saves in the NHL, and awe inspiring dunks in the NBA.' @endif">
 </head>
 <body>
     <div id="app">
@@ -27,7 +24,7 @@
     <div class="white-container">
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <a class="title-link site-branding" href="{{ url('/') }}"><img src="{{ url('/') }}{{$random_header_image}}" class="img-responsive corner-stone-image">
+                <a class="title-link site-branding" href="{{ url('/') }}"><img src="{{ url('/') }}{{$random_header_image}}" class="img-fluid corner-stone-image">
                 <h1>{{ config('app.name', 'Highlights Arena') }}</h1></a>
             </div>
         </div>
@@ -69,6 +66,12 @@
     </div>
 
     @yield('content')
+
+    <div class="container" id="footer">
+        <div class="col-xs-12 col-xs-12 col-md-12 col-lg-12">
+            <p class="text-center">&copy; 2017 - Highlights Arena</p>
+        </div>
+    </div>
     </div>
 
     <!-- Scripts -->
@@ -83,5 +86,19 @@
             $('[data-toggle="popover"]').popover()
         });
     </script>
+
+    @if(config('app.debug') || Auth::check())
+    <!--Google Analytics was not loaded. Either you are in debug mode or you are logged in as an administrator.-->
+    @else
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-32585378-8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-32585378-8');
+    </script>
+    @endif
 </body>
 </html>
