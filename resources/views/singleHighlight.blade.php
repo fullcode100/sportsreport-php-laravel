@@ -61,7 +61,7 @@
 				<div id="disqus_thread"></div>
 				<script>
 				var disqus_config = function () {
-				this.page.url = "{{ url('/') }}/{{$highlight_data->highlight_id}}";
+				this.page.url = "{{ url('/') }}/{{$highlight_data->highlight_id}}/{{$highlight_data->url_slug}}";
 				this.page.identifier = {{$highlight_data->highlight_id}};
 				};
 				(function() {
@@ -82,5 +82,5 @@
 @endsection
 
 @section('meta_descriptor')
-{{$highlight_data->highlight_title}}. {{$highlight_data->highlight_description}} - Posted: @if($highlight_data->created_at == null) Unknown @else {{$highlight_data->created_at}} @endif
+{{$highlight_data->highlight_title}}. {{$highlight_data->highlight_description}}
 @endsection
