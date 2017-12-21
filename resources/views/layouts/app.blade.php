@@ -15,8 +15,9 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="{{ asset('css/custom-styles.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico" />
 
-    <meta name="description=" content="@if(View::hasSection('meta_descriptor')) @yield('meta_descriptor') @else Highlights Arena houses some of the best sports highlights and photos from around the internet. We collect clips of everything ranging from amazing NFL touchdowns, the craziest college plays, biggest MLB homeruns, great goalie saves in the NHL, and awe inspiring dunks in the NBA.' @endif">
+    <meta name="description" content="@if(View::hasSection('meta_descriptor')) @yield('meta_descriptor') @else Highlights Arena houses some of the best sports highlights and photos from around the internet. We collect clips of everything ranging from amazing NFL touchdowns, the craziest college plays, biggest MLB homeruns, great goalie saves in the NHL, and awe inspiring dunks in the NBA.' @endif">
 </head>
 <body>
     <div id="app">

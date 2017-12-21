@@ -45,13 +45,16 @@
 						</div>
 
 						<div class="col-xs-12 col-md-10">
-							<p><strong>Highlight Description:</strong> <input type="text" name="highlight_description" id="highlight_description" class="formWidth"> <em class="text-info">optional</em></p>
+							<p><strong>Highlight Description:</strong>
+								<textarea rows="4" cols="50" name="highlight_description" id="highlight_description" class="formWidth"></textarea>
+								<em class="text-info">optional</em>
+							</p>
 						</div>
 						
 					<!-- Update Source Button -->
 					<div class="form-group">
 						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							<button type="submit" class="btn btn-default"><i class="fa fa-plus"></i> Add Highlight Reel</button>
+							<button type="submit" class="btn btn-default cursor-pointer"><i class="fa fa-plus"></i> Add Highlight Reel</button>
 						</div>
 					</div>
 				</form>
@@ -63,7 +66,7 @@
 			<!--If you messed something up in the submission go back and start over.-->
 				<h1 class="text-danger">No, wait!</h1>
 				<h5 class="text-warning">I screwed something up.</h5>
-				<a href="/preview-post"><button type="button" class="btn btn-warning">Go back and try this again.</button></a>
+				<a href="/preview-post"><button type="button" class="btn btn-warning cursor-pointer">Go back and try this again.</button></a>
 		</div>
 	</div>
 </div>

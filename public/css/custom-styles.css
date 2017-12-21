@@ -198,3 +198,8 @@ body{
 .mbl{
 	margin-bottom: 16px;
 }
+
+/* Cursor Classes */
+.cursor-pointer{
+	cursor: pointer;
+}
