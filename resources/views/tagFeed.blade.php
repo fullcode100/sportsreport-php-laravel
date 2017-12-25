@@ -12,7 +12,7 @@
 					<div>
 						{!!$feed_item['embed_data']!!}
 					</div>
-					<p>{{$feed_item['highlight_description']}}</p>
+					<p>{!!$feed_item['highlight_description']!!}</p>
 					<p>
 						<span class="share-btn">
 						<span class="btn-link pointer-cursor" data-toggle="popover" data-html="true" data-placement="auto top" title="Share: <b>{{$feed_item['highlight_title']}}</b>" data-content="<p>From: {{$feed_item['origin_url']}}</p> <p>Here: {{ url('/') }}/{{$feed_item['highlight_id']}}</p>">Share</span>
