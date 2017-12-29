@@ -37,17 +37,17 @@
                 </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav center-nav-links">
-                        <!--<li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                          </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>-->
+                            <a class="nav-link" href="http://blog.highlightsarena.com/">Writings</a>
+                        </li>
                         @guest
                             <li>&nbsp;</li>
                         @else
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ url('/') }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

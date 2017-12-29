@@ -113,7 +113,7 @@ class interpreter extends Controller
 
 	private function static_embed($static_url){
 
-		$imgur_formed_embed_code = '<img src="' . $static_url . '" class="img-responsive">';
+		$imgur_formed_embed_code = '<img src="' . $static_url . '" class="img-fluid">';
 
 		return $imgur_formed_embed_code;
 	}
