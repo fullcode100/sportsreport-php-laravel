@@ -106,7 +106,7 @@ class interpreter extends Controller
 	private function imgur_embed($imgur_url){
 		$strip_imgur_url = trim(substr($imgur_url, strpos($imgur_url, 'imgur.com/') + 10));
 
-		$imgur_formed_embed_code = '<blockquote class="imgur-embed-pub" lang="en" data-id="' . $strip_imgur_url . '"><a href="' . $imgur_url . '//imgur.com/gxcvDID">Buffalo Bills take the field in blizzard conditions</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>';
+		$imgur_formed_embed_code = '<blockquote class="imgur-embed-pub" lang="en" data-id="' . $strip_imgur_url . '"><a href="' . $imgur_url . '//imgur.com/' . $strip_imgur_url . '"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>';
 
 		return $imgur_formed_embed_code;
 	}
