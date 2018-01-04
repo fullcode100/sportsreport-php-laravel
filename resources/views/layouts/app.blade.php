@@ -20,50 +20,39 @@
     <meta name="description" content="@if(View::hasSection('meta_descriptor')) @yield('meta_descriptor') @else Highlights Arena houses some of the best sports highlights and photos from around the internet. We collect clips of everything ranging from amazing NFL touchdowns, the craziest college plays, biggest MLB homeruns, great goalie saves in the NHL, and awe inspiring dunks in the NBA.' @endif">
 </head>
 <body>
-    <div id="app">
-
+<div id="app">
     <div class="white-container">
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <a class="title-link site-branding" href="{{ url('/') }}"><img src="{{ url('/') }}{{$random_header_image}}" class="img-fluid corner-stone-image">
-                <h1>{{ config('app.name', 'Highlights Arena') }}</h1></a>
+                <a class="title-link site-branding" href="{{ url('/') }}">
+                    <img src="{{ url('/') }}{{$random_header_image}}" class="img-fluid corner-stone-image">
+                    <h1>{{ config('app.name', 'Highlights Arena') }}</h1>
+                </a>
             </div>
-        </div>
 
-        <nav class="navbar navbar-toggleable-md navbar-default mbl">
-            <div class="container">
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav center-nav-links">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="http://blog.highlightsarena.com/">Writings</a>
-                        </li>
-                        @guest
-                            <li>&nbsp;</li>
-                        @else
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{ url('/') }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              {{ Auth::user()->name }} <span class="caret"></span>
+            <nav class="navbar">
+               <ul class="center-nav-links">
+                    <li><a class="nav-link" href="/">Highlights</a></li>
+                    <li><a class="nav-link" href="https://blog.highlightsarena.com/">Writings</a></li>
+                    @if(Auth::check())
+                        <li>
+                            <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                {{ Auth::user()->name }} &#9660;
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a href="/home">Manage Highlights</a>
-                                <a href="/preview-post">Add New Highlight</a>
-                                <a href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </div>
                         </li>
-                        @endguest
-                    </ul>
+                    @endif
+               </ul>
+
+               <div class="collapse center-nav-links" id="collapseExample">
+                    <a href="/home">Manage Highlights</a> |
+                    <a href="/preview-post">Add New Highlight</a> |
+                    <a href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
 
     @yield('content')
@@ -73,25 +62,25 @@
             <p class="text-center">&copy; 2017 - Highlights Arena</p>
         </div>
     </div>
-    </div>
+</div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-    <script>
-         $(document).ready(function(){
-            $('[data-toggle="popover"]').popover()
-        });
-    </script>
+<script>
+     $(document).ready(function(){
+        $('[data-toggle="popover"]').popover()
+    });
+</script>
 
-    @if(config('app.debug') || Auth::check())
+@if(config('app.debug') || Auth::check())
     <!--Google Analytics was not loaded. Either you are in debug mode or you are logged in as an administrator.-->
-    @else
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+@else
+<!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-32585378-8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -100,6 +89,6 @@
 
       gtag('config', 'UA-32585378-8');
     </script>
-    @endif
+@endif
 </body>
 </html>

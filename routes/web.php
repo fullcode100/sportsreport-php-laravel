@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'highlightFeed@homePageFeed');
+Route::get('/page/{page_set}', 'highlightFeed@highlightPages');
 //If the URL is accessed without a slug this route will redirect them to that page/highlight but with a slug as part of the URL.
 Route::get('/highlight/{post_id}','highlightFeed@sluglessSinglePost');
 Route::get('/highlight/{post_id}/{friendly_slug}','highlightFeed@singlePost');

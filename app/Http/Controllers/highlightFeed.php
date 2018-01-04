@@ -11,11 +11,7 @@ class highlightFeed extends Controller
     
 	public function homePageFeed(){
 
-		$highlight = new highlight();
-
-		$feed_data = $highlight->getPrimaryFeed();
-
-		return view('homePageFeed',['feed_data' => $feed_data]);
+		return view('homePageFeed',['feed_data' => highlight::orderBy('highlight_id','desc')->simplePaginate(env('POST_PER_PAGE', 10))]);
 
 	}
 
