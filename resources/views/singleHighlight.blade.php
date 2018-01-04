@@ -10,14 +10,14 @@
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<h2>{{$highlight_data->highlight_title}}</h2>
 				<div>
-					{!!$highlight_data->embed_data!!}
+					{!! $highlight_data->embed_data !!}
 				</div>
-				<p>{!!highlight_data->highlight_description!!}</p>
+				<p>{!! $highlight_data->highlight_description !!}</p>
 				<p class="text-muted">Found on <span class="text-capitalize">{{$highlight_data->service_origin}}</span> (<a href="{{$highlight_data->origin_url}}" target="_blank">{{$highlight_data->origin_url}}</a>) | Posted: @if($highlight_data->created_at == null)
-												Unknown
-											@else
-												{{$highlight_data->created_at}}
-											@endif</p>
+									Unknown
+								@else
+									{{$highlight_data->created_at}}
+								@endif</p>
 				<hr>
 			</div>
 

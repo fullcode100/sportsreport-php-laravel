@@ -88,7 +88,7 @@ class interpreter extends Controller
 
 		$youtube_embed_url = 'https://www.youtube.com/embed/' . $strip_youtube_url;
 
-		$youtube_formed_embed_code = '<iframe width="800" height="450" src="' . $youtube_embed_url . '" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>';
+		$youtube_formed_embed_code = '<iframe width="100%" height="450" style="max-height: 450px;" src="' . $youtube_embed_url . '" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>';
 
 		return $youtube_formed_embed_code;
 	}
