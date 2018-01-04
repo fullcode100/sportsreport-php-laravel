@@ -36,6 +36,14 @@ body{
 
 .center-nav-links{
 	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+.center-nav-links>li{
+	padding: 8px;
+	display: inline-block;
 }
 
 .corner-stone-image{
@@ -76,12 +84,13 @@ body{
 	transition: all .33s ease-in;
 }
 
-.nav-link{
+.nav-link:link, .nav-link:visited{
 	color: #aa9988;
 	font-weight: bold;
+	line-height: 1.15;
 }
 
-.nav-link:hover{
+.nav-link:hover, .nav-link:active{
 	color: #e1a708;
 }
 
