@@ -25,7 +25,7 @@
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <a class="title-link site-branding" href="{{ url('/') }}">
-                    <img src="{{ url('/') }}{{$random_header_image}}" class="img-fluid corner-stone-image">
+                    <img src="{{ url('/') }}{{$random_header_image}}" alt="Highlights Arena Header Image" class="img-fluid corner-stone-image">
                     <h1>{{ config('app.name', 'Highlights Arena') }}</h1>
                 </a>
             </div>

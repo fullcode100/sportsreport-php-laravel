@@ -110,22 +110,16 @@ body{
 	cursor: pointer;
 }
 
-/*Custom Padding*/
+/* ###Custom Padding### */
+/* Padding Vertical */
+.pvn{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
 .pvs{
 	padding-top: 4px;
 	padding-bottom: 4px;
-}
-
-.pts{
-	padding-top: 4px;
-}
-
-.ptm{
-	padding-top: 8px;
-}
-
-.ptl{
-	padding-top: 16px;
 }
 
 .pvm{
@@ -136,6 +130,12 @@ body{
 .pvl{
 	padding-top: 16px;
 	padding-bottom: 16px;
+}
+
+/* Padding Horizontal */
+.phn{
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .phs{
@@ -153,15 +153,81 @@ body{
 	padding-right: 16px;
 }
 
+/* Padding Top */
 .ptn{
 	padding-top: 0;
 }
 
-.obn{
+.pts{
+	padding-top: 4px;
+}
+
+.ptm{
+	padding-top: 8px;
+}
+
+.ptl{
+	padding-top: 16px;
+}
+
+/* Padding Bottom */
+.pbn{
 	padding-bottom: 0;
 }
 
-/*Custom Margins*/
+.pbs{
+	padding-bottom: 4px;
+}
+
+.pbm{
+	padding-bottom: 8px;
+}
+
+.pbl{
+	padding-bottom: 16px;
+}
+
+/* Padding Left */
+.pln{
+	padding-left: 0px;
+}
+
+.pls{
+	padding-left: 4px;
+}
+
+.plm{
+	padding-left: 8px;
+}
+
+.pll{
+	padding-left: 16px;
+}
+
+/* Padding Right */
+.prn{
+	padding-right: 0px;
+}
+
+.prs{
+	padding-right: 4px;
+}
+
+.prm{
+	padding-right: 8px;
+}
+
+.prl{
+	padding-right: 16px;
+}
+
+/* ###Custom Margins### */
+/* Margin Vertical */
+.mvn{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
 .mvs{
 	margin-top: 4px;
 	margin-bottom: 4px;
@@ -175,6 +241,12 @@ body{
 .mvl{
 	margin-top: 16px;
 	margin-bottom: 16px;
+}
+
+/* Margin Horizontal */
+.mhn{
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 .mhs{
@@ -192,12 +264,30 @@ body{
 	margin-right: 16px;
 }
 
+/* Margin Top */
 .mtn{
 	margin-top: 0;
 }
 
+.mts{
+	margin-top: 4px;
+}
+
+.mtm{
+	margin-top: 8px;
+}
+
+.mtl{
+	margin-top: 16px;
+}
+
+/* Margin Bottom */
 .mbn{
 	margin-bottom: 0;
+}
+
+.mbs{
+	margin-bottom: 4px;
 }
 
 .mbm{
@@ -206,6 +296,40 @@ body{
 
 .mbl{
 	margin-bottom: 16px;
+}
+
+/* Margin Left */
+.mln{
+	margin-left: 0px;
+}
+
+.mls{
+	margin-left: 4px;
+}
+
+.mlm{
+	margin-left: 8px;
+}
+
+.mll{
+	margin-left: 16px;
+}
+
+/* Margin Right */
+.mrn{
+	margin-right: 0px;
+}
+
+.mrs{
+	margin-right: 4px;
+}
+
+.mrm{
+	margin-right: 8px;
+}
+
+.mrl{
+	margin-right: 8px;
 }
 
 /* Cursor Classes */
