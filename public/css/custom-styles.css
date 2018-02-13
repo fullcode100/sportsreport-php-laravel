@@ -7,9 +7,10 @@ font-family: 'Quicksand', sans-serif;
 
 h1,h3,h5{
 	font-family: 'Arvo', serif;
+	color: #636b6f;
 }
 
-h2,h4,h6,p,ul,li{
+h2,h4,h6,p,ul,li,th,tr{
 	font-family: 'Quicksand', sans-serif;
 }
 
@@ -106,8 +107,23 @@ body{
     word-wrap: break-word;
 }
 
+
+/* Cursor Classes */
+.cursor-pointer{
+	cursor: pointer;
+}
+
 .pointer-cursor:hover{
 	cursor: pointer;
+}
+
+/* Styles for the sidebar */
+.table-sm>thead>tr>th{
+	font-weight: 500;
+}
+
+.table-sm>tbody>tr>th{
+	font-weight: normal;
 }
 
 /* ###Custom Padding### */
@@ -330,9 +346,4 @@ body{
 
 .mrl{
 	margin-right: 8px;
-}
-
-/* Cursor Classes */
-.cursor-pointer{
-	cursor: pointer;
 }

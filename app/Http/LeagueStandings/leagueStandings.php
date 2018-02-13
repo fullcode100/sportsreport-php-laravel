@@ -44,7 +44,20 @@ class leagueStandingsAPI{
 			curl_close($ch);
 
 			$parsed_data = json_decode($result);
-			return $parsed_data;
+
+			//Split the NBA standings into East Vs West since they are all presented in one list.
+			$nba_east = collect();
+			$nba_west = collect();
+
+			foreach($parsed_data->standing as $team){
+				if($team->conference === "EAST"){
+					$nba_east->push($team);
+				}else if($team->conference === "WEST"){
+					$nba_west->push($team);
+				}
+			}
+
+			return ['nba_east'=>$nba_east,'nba_west'=>$nba_west];
 		});
 
 		return $nba_standings_data;
