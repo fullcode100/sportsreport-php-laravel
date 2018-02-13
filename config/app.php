@@ -179,6 +179,7 @@ return [
 
         /*Our custom providers.*/
         App\Providers\navigationServiceProvider::class,
+        App\Providers\leagueStandingsProvider::class,
 
     ],
 

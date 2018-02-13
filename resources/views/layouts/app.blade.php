@@ -15,6 +15,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="{{ asset('css/custom-styles.css') }}" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="shortcut icon" href="/favicon.ico" />
 
     <meta name="description" content="@if(View::hasSection('meta_descriptor')) @yield('meta_descriptor') @else Highlights Arena houses some of the best sports highlights and photos from around the internet. We collect clips of everything ranging from amazing NFL touchdowns, the craziest college plays, biggest MLB homeruns, great goalie saves in the NHL, and awe inspiring dunks in the NBA.' @endif">
@@ -25,7 +26,7 @@
         <div class="container">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <a class="title-link site-branding" href="{{ url('/') }}">
-                    <img src="{{ url('/') }}{{$random_header_image}}" class="img-fluid corner-stone-image">
+                    <img src="{{ url('/') }}{{$random_header_image}}" alt="Highlights Arena Header Image" class="img-fluid corner-stone-image">
                     <h1>{{ config('app.name', 'Highlights Arena') }}</h1>
                 </a>
             </div>
