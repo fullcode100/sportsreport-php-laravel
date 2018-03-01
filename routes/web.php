@@ -37,6 +37,8 @@ Route::get('/tagged/{tag_url}','highlightFeed@highlightsByTag');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/topOfTheWeek/{month}/{day}/{year}','topPost@topOfTheWeek');
+
 // All routes in the group are protected, only authed user are allowed to access them
 Route::group(['middleware' => ['auth']], function () {
 
