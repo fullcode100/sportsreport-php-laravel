@@ -77,9 +77,8 @@
 	</div>
 @endsection
 
-@section('title')
-	{{$highlight_data->highlight_title}}
-@endsection
+
+<?php $page_title = $highlight_data->highlight_title; ?>
 
 @section('meta_descriptor')
 {{$highlight_data->highlight_title}}. {{$highlight_data->highlight_description}}

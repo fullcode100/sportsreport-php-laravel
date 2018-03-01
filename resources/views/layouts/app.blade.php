@@ -9,8 +9,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!--Gets page title if one is set. Defaults otherwise.-->
-        <title>@if(View::hasSection('title')) @yield('title') - {{ config('app.name', 'Sports Highlights and Photography') }} @else {{ config('app.name', 'Sports Highlights and Photography') }}@endif
-        </title>
+    <?php $final_page_title; ?>
+    @if(isset($page_title)) 
+        <?php $final_page_title = $page_title . " - " . config('app.name', 'Sports Highlights and Photography'); ?>
+    @else 
+        <?php $final_page_title = config('app.name', 'Sports Highlights and Photography'); ?>
+    @endif
+    <title>{{$final_page_title}}</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -18,7 +23,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="shortcut icon" href="/favicon.ico" />
 
-    <meta name="description" content="@if(View::hasSection('meta_descriptor')) @yield('meta_descriptor') @else Highlights Arena houses some of the best sports highlights and photos from around the internet. We collect clips of everything ranging from amazing NFL touchdowns, the craziest college plays, biggest MLB homeruns, great goalie saves in the NHL, and awe inspiring dunks in the NBA.' @endif">
+    <meta name="description" content="@if(View::hasSection('meta_descriptor')) @yield('meta_descriptor') @else Highlights Arena houses some of the best sports highlights and photos from around the internet. We collect clips of everything ranging from amazing NFL touchdowns, the craziest college plays, biggest MLB homeruns, great goalie saves in the NHL, and awe inspiring dunks in the NBA. @endif">
 </head>
 <body>
 <div id="app">
