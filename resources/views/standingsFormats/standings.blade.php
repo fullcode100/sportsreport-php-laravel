@@ -1,70 +1,123 @@
 <div class="pvm">
-<h3><i class="fas fa-hockey-puck"></i> NHL Standings:</h3>
-@foreach($standings->records as $division)
-	<h5>{{$division->division->name}} Division</h5>
+	<h3><i class="fas fa-baseball-ball"></i> MLB Standings:</h3>
+	<h4>American League</h4>
+	<h5>East</h5>
 	<table class="table table-sm">
 		<thead>
 			<tr>
-				<th scope="col">Team</th>
-				<th scope="col">W/L/OTL</th>
-				<th scope="col">Pts</th>
-			</tr>
-		</thead>
-		<tbody>
-	@foreach($division->teamRecords as $team)
-			<tr>
-				<th scope="row">{{$team->team->name}}</th>
-				<td>{{$team->leagueRecord->wins}}/{{$team->leagueRecord->losses}}/{{$team->leagueRecord->ot}}</td>
-				<td>{{$team->points}}</td>
-			</tr>
-	@endforeach
-		</tbody>
-	</table>
-@endforeach
-</div>
-
-<div class="pvm">
-	<h3><i class="fas fa-basketball-ball"></i> NBA Standings:</h3>
-	<h5>Eastern Conference Standings</h5>
-	<table class="table table-sm">
-		<thead>
-			<tr>
-				<th scope="col">#</th>
 				<th scope="col">Team:</th>
-				<th scope="col">W/L</th>
+				<th scope="col">W-L</th>
+				<th scope="col">GB</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php $standing_pos = 1; ?>
-			@foreach($nba_standings['nba_east'] as $team)
+			@foreach($mlb_standings['mlb_al_east'] as $team)
 				<tr>
-					<th scope="row">{{$standing_pos}}</th>
 					<td>{{$team->first_name}} {{$team->last_name}}</td>
-					<td>{{$team->won}}/{{$team->lost}}</td>
+					<td>{{$team->won}}-{{$team->lost}}</td>
+					<td>{{$team->games_back}}</td>
 				</tr>
-				<?php $standing_pos = $standing_pos + 1; ?>
 			@endforeach
 		</tbody>
 	</table>
 
-	<h5>Western Conference Standings</h5>
+	<h5>Central</h5>
 	<table class="table table-sm">
 		<thead>
 			<tr>
-				<th scope="col">#</th>
-				<th scope="col">Team</th>
-				<th scope="col">W/L</th>
+				<th scope="col">Team:</th>
+				<th scope="col">W-L</th>
+				<th scope="col">GB</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php $standing_pos = 1; ?>
-			@foreach($nba_standings['nba_west'] as $team)
+			@foreach($mlb_standings['mlb_al_central'] as $team)
 				<tr>
-					<th scope="row">{{$standing_pos}}</th>
 					<td>{{$team->first_name}} {{$team->last_name}}</td>
-					<td>{{$team->won}}/{{$team->lost}}</td>
+					<td>{{$team->won}}-{{$team->lost}}</td>
+					<td>{{$team->games_back}}</td>
 				</tr>
-				<?php $standing_pos = $standing_pos + 1; ?>
+			@endforeach
+		</tbody>
+	</table>
+
+	<h5>West</h5>
+	<table class="table table-sm">
+		<thead>
+			<tr>
+				<th scope="col">Team:</th>
+				<th scope="col">W-L</th>
+				<th scope="col">GB</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($mlb_standings['mlb_al_west'] as $team)
+				<tr>
+					<td>{{$team->first_name}} {{$team->last_name}}</td>
+					<td>{{$team->won}}-{{$team->lost}}</td>
+					<td>{{$team->games_back}}</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+
+	<h4>National League</h4>
+	<h5>East</h5>
+	<table class="table table-sm">
+		<thead>
+			<tr>
+				<th scope="col">Team:</th>
+				<th scope="col">W-L</th>
+				<th scope="col">GB</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($mlb_standings['mlb_nl_east'] as $team)
+				<tr>
+					<td>{{$team->first_name}} {{$team->last_name}}</td>
+					<td>{{$team->won}}-{{$team->lost}}</td>
+					<td>{{$team->games_back}}</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+
+	<h5>Central</h5>
+	<table class="table table-sm">
+		<thead>
+			<tr>
+				<th scope="col">Team:</th>
+				<th scope="col">W-L</th>
+				<th scope="col">GB</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($mlb_standings['mlb_nl_central'] as $team)
+				<tr>
+					<td>{{$team->first_name}} {{$team->last_name}}</td>
+					<td>{{$team->won}}-{{$team->lost}}</td>
+					<td>{{$team->games_back}}</td>
+				</tr>
+			@endforeach
+		</tbody>
+	</table>
+
+	<h5>West</h5>
+	<table class="table table-sm">
+		<thead>
+			<tr>
+				<th scope="col">Team:</th>
+				<th scope="col">W-L</th>
+				<th scope="col">GB</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($mlb_standings['mlb_nl_west'] as $team)
+				<tr>
+					<td>{{$team->first_name}} {{$team->last_name}}</td>
+					<td>{{$team->won}}-{{$team->lost}}</td>
+					<td>{{$team->games_back}}</td>
+				</tr>
 			@endforeach
 		</tbody>
 	</table>
