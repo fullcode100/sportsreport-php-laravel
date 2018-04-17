@@ -33,7 +33,7 @@
 		<div class="row">
 			{{--Pagination Links Generator--}}
 			{{ $feed_data->links() }}
-		</div>		
+		</div>
 	</div>
 
 	<script>
