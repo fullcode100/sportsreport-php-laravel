@@ -40,6 +40,7 @@
                <ul class="center-nav-links">
                     <li><a class="nav-link" href="/">Highlights</a></li>
                     <li><a class="nav-link" href="https://blog.highlightsarena.com/">Writings</a></li>
+                    <li><a class="nav-link" href="/all-top-of-the-weeks">Highlights By Week</a></li>
                     @if(Auth::check())
                         <li>
                             <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
