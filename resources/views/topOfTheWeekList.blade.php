@@ -7,7 +7,7 @@
 		<div class="row">			
 			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
 				<h1 class="mvl"><i class="fas fa-film"></i>&nbsp;Highlights By Week</h1>
-				<p>Eac week Highlights Arena collects some of the best highlights from around the NFL, MLB, NBA, NHL, NCAA, and really anywhere else sports are played.</p>
+				<p>Each week Highlights Arena collects some of the best highlights from around the NFL, MLB, NBA, NHL, NCAA, and really anywhere else sports are played.</p>
 				<p>Each weeks collection of highlights are forever archived into the Top Of The Week listings. A great place to look back on what you missed this week, or just a way to
 				get relive some of your favorite moments.</p>
 
