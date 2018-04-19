@@ -18,9 +18,9 @@ Route::get('/highlight/{post_id}','highlightFeed@sluglessSinglePost');
 Route::get('/highlight/{post_id}/{friendly_slug}','highlightFeed@singlePost');
 Route::get('/tagged/{tag_url}','highlightFeed@highlightsByTag');
 
-//Auth::routes();
+    //Auth::routes();
 
-// Authentication Routes...
+    // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
@@ -37,6 +37,9 @@ Route::get('/tagged/{tag_url}','highlightFeed@highlightsByTag');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/top-of-the-week/{month}/{day}/{year}','topPost@topOfTheWeek');
+Route::get('all-top-of-the-weeks','topPost@allWeeks');
+
 // All routes in the group are protected, only authed user are allowed to access them
 Route::group(['middleware' => ['auth']], function () {
 
@@ -50,6 +53,12 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/delete-highlight','interpreter@delete_highlight');
 
     Route::post('/new-tag-set','tagging@tagTranslator');
+
+     Route::get('new-top-of-the-week', function(){
+        return view('addNewTopOfTheWeek');
+    });
+
+    Route::post('/add-new-top-of-the-week','topPost@addNew');
 
 });
 
