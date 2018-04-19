@@ -25,11 +25,12 @@ class tag_model extends Model
     }
 
     public function mostPopularTags(){
-    	$tag_data = $this->orderby('unique_tag_id','DESC')->take(100)->get();
+    	$tag_data = $this::orderby('unique_tag_id','DESC')->take(150)->get();
 
-        $tag_data = $tag_data->has('tag_url','>=',1);
-    	dd($tag_data);
+        $tag_data = $tag_data->unique('tag_url');
+
+        $five_random_tags = $tag_data->random(5);
     	
-    	return arsort($tag_data);
+    	return $five_random_tags;
     }
 }

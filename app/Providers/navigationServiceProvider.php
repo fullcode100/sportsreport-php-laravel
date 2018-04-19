@@ -24,6 +24,12 @@ class navigationServiceProvider extends ServiceProvider
 
             $view->with('random_header_image',$selected_image);
         });
+
+        //Grab 5 tags to populate across the top of the site.
+        view()->composer('layouts.app',function($view){
+            $popular_tags = new tag_model;
+            $view->with('popular_tags',$popular_tags->mostPopularTags());
+        });
     }
 
     /**

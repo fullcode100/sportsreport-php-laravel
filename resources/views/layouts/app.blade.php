@@ -32,14 +32,14 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <a class="title-link site-branding" href="{{ url('/') }}">
                     <img src="{{ url('/') }}{{$random_header_image}}" alt="Highlights Arena Header Image" class="img-fluid corner-stone-image">
-                    <h1>{{ config('app.name', 'Highlights Arena') }}</h1>
+                    <h1 class="nav-link pvs">{{ config('app.name', 'Highlights Arena') }}</h1>
                 </a>
             </div>
 
             <nav class="navbar">
                <ul class="center-nav-links">
-                    <li><a class="nav-link" href="/">Highlights</a></li>
-                    <li><a class="nav-link" href="https://blog.highlightsarena.com/">Writings</a></li>
+                    <li><a class="nav-link" href="/" title="View the highlight feed.">Highlights</a></li>
+                    <li><a class="nav-link" href="https://blog.highlightsarena.com/" title="Read the Highlights Arena blog for the latest on what we think.">Writings</a></li>
                     @if(Auth::check())
                         <li>
                             <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -58,6 +58,15 @@
                     </form>
                 </div>
             </nav>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="center-nav-links">
+                <li><strong>Popular:</strong></li>
+                @foreach($popular_tags as $tag)
+                    <li><a class="nav-link" href="/tagged/{{$tag->tag_url}}" title="View all post tagged {{$tag->tag_read}}">{{$tag->tag_read}}</a></li>
+                @endforeach
+                </ul>
+            </div>
         </div>
     </div>
 
