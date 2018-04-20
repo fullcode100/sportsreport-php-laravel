@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
-<?php $page_title = "Top Hightlights for the week of " . $date_range; ?>
-
 @section('content')
+
+	<?php 
+	//These variables will filter back to the app.blade layout and be interpereted as meta data for the page.
+	$page_title = "Top Hightlights for the week of " . $date_range;
+	$page_meta_description = "Every week " . config('app.name', 'Sports Highlights and Photography') . " collects dozens of the top highlights from around the world of sports and catalogs them for easy access later on. If you missed them catch up, of if you saw them already relive the best sports highlights for the week of " . $date_range . ".";
+	?>
 
 	<div class="container">
 		<div class="row">

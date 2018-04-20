@@ -2,6 +2,12 @@
 
 @section('content')
 
+	<?php
+		//These variables will filter back to the app.blade layout and be interpereted as meta data for the page.
+		$page_title = $highlight_data->highlight_title;
+		$page_meta_description = strip_tags($highlight_data->highlight_description);
+	?>
+
 	<div class="container">
 		<div class="row">
 
@@ -75,11 +81,4 @@
 			</div>
 		</div>
 	</div>
-@endsection
-
-
-<?php $page_title = $highlight_data->highlight_title; ?>
-
-@section('meta_descriptor')
-{{$highlight_data->highlight_title}}. {{$highlight_data->highlight_description}}
 @endsection

@@ -4,6 +4,12 @@
 
 @section('content')
 
+	<?php
+		//These variables will filter back to the app.blade layout and be interpereted as meta data for the page.
+		$page_title = "Highlights tagged " . strtoupper($meta_tag);
+		$page_meta_description = "Watch all the highlights we've gathered involving " . ucwords($meta_tag) . " here on " . config('app.name', 'Sports Highlights and Photography') . ".";
+	?>
+
 	<div class="container">
 		<div class="row">
 			@foreach ($feed_data as $feed_item)

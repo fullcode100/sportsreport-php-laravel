@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'The Latest and Greatest Highlights from the Sports World')
-
 @section('content')
+	<?php
+		//These variables will filter back to the app.blade layout and be interpereted as meta data for the page.
+		$page_title = "Top plays from the NFL, MLB, NBA, NHL, and NCAA";
+		$page_meta_description = null;
+	?>
 
 	<div class="container">
 		<div class="row">

@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
-<?php $page_title = "Top highlights of the week." ?>
-
 @section('content')
+
+	<?php 
+	//These variables will filter back to the app.blade layout and be interpereted as meta data for the page.
+	$page_title = "Top Of The Week Highlights Archive";
+	$page_meta_description = "Every week " . config('app.name', 'Sports Highlights and Photography') . " collects dozens of the top highlights from around the world of sports and catalogs them for easy access later on. For easy access we've created this master list which will allow you to browse every weekly collection of highlights since the service began.";
+	?>
+
 	<div class="container">
 		<div class="row">			
 			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">

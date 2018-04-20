@@ -23,7 +23,17 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="shortcut icon" href="/favicon.ico" />
 
-    <meta name="description" content="@if(View::hasSection('meta_descriptor')) @yield('meta_descriptor') @else Highlights Arena houses some of the best sports highlights and photos from around the internet. We collect clips of everything ranging from amazing NFL touchdowns, the craziest college plays, biggest MLB homeruns, great goalie saves in the NHL, and awe inspiring dunks in the NBA. @endif">
+    <?php $final_meta_description; 
+        if(isset($page_meta_description)){
+           $final_meta_description =  $page_meta_description;
+        }else{
+            $final_meta_description = "View a collection of some of the best highlights from around the NFL, MLB, NBA, NHL, NCAA, and whereever sports are played really.
+        Or check out the blog to our opinions on the recent happenings in the world of sports... or whatever else we feel like writing.";
+        }
+
+        $final_meta_description = trim($final_meta_description);
+    ?>
+    <meta name="description" content="{{$final_meta_description}}">
 </head>
 <body>
 <div id="app">
@@ -60,7 +70,7 @@
                 </div>
             </nav>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="hidden-sm-down col-md-12 col-lg-12">
                 <ul class="center-nav-links">
                 <li><strong>Popular:</strong></li>
                 @foreach($popular_tags as $tag)

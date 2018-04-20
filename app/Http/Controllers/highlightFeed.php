@@ -52,7 +52,7 @@ class highlightFeed extends Controller
 
 		$post_under_tag = highlight::postInTag($post_ids_in_tag);
 
-		return view('tagFeed',['feed_data' => $post_under_tag]);
+		return view('tagFeed',['feed_data' => $post_under_tag,"meta_tag" => $tag_url]);
 	}
 
 }

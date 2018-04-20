@@ -347,3 +347,24 @@ body{
 .mrl{
 	margin-right: 8px;
 }
+
+
+
+@media screen and (min-width: 0px) and (max-width: 767px){
+	.center-nav-links>li{
+		clear: both !important;
+	}
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+	.center-nav-links>li{
+		clear: both !important;
+	}
+}
+
+/*
+@media (min-width: 992px) { ... }
+
+@media (min-width: 1200px) { ... }
+*/
