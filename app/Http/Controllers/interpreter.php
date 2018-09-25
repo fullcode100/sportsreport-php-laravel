@@ -12,6 +12,7 @@ class interpreter extends Controller
 
 	private $embed_html_response;
 
+	//An array of all currently supported media services for automatically parsing embeding.
 	private $valid_sources = ["instagram","twitter","imgur","gfycat","youtube"];
 
 	//Determines the media conent source and parses the embeding for that given source.
@@ -50,8 +51,8 @@ class interpreter extends Controller
 
 
 	/*
-	*This block of functions will contain various URL processors.
-	*Basically they will return html code that is embeded content from any various defined media service.
+	 * This block of functions will contain various URL processors.
+	 * Basically they will return html code that is embeded content from any various defined media service.
 	*/
 	private function instagram_embed($insta_url){
 		$build_url = 'https://api.instagram.com/oembed/?url=' . $insta_url;
@@ -136,6 +137,7 @@ class interpreter extends Controller
 		return $this->mediaSource($preview_embed_content_request->content_source,$preview_embed_content_request->content_url);
 	}
 
+	//After a highlight has been previewed we'll want to do a final validation on all its information and then insert it into the database.
 	public function insert_new_highlight(Request $add_highlight_request){
 		
 		$embeded_content_validation = Validator::make($add_highlight_request->all(), [
@@ -162,6 +164,11 @@ class interpreter extends Controller
 		return redirect('/');
 	}
 
+	/**
+		Deletes a highlight from the database based off the highlight ID
+		@param Request
+		@returns mixed
+	*/
 	public function delete_highlight(Request $remove_highlight_request){
 		
 		$remove_highlight_validation = Validator::make($remove_highlight_request->all(), [

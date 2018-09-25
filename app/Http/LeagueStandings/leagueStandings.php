@@ -39,7 +39,7 @@ class leagueStandingsAPI{
 		$nba_standings_data = Cache::remember('nba_standings_json',$expire_nba,function(){
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $this->nba_standings_url);
-			curl_setopt($ch,CURLOPT_USERAGENT,"Highlights Arena Standings Crawler/0.2 (jackemceachern@gmail.com)");
+			curl_setopt($ch,CURLOPT_USERAGENT,env('APP_USERAGENT', null));
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$result = curl_exec($ch);
 			curl_close($ch);
@@ -71,7 +71,7 @@ class leagueStandingsAPI{
 		$mlb_standings_data = Cache::remember('mlb_standings_json',$expire_mlb,function(){
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $this->mlb_standings_url);
-			curl_setopt($ch,CURLOPT_USERAGENT,"Highlights Arena Standings Crawler/0.2 (jackemceachern@gmail.com)");
+			curl_setopt($ch,CURLOPT_USERAGENT,env('APP_USERAGENT', null));
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			$result = curl_exec($ch);
 			curl_close($ch);

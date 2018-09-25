@@ -70,6 +70,7 @@
                 </div>
             </nav>
 
+            <!--Show popular/used tags in the header-->
             <div class="hidden-sm-down col-md-12 col-lg-12">
                 <ul class="center-nav-links">
                 <li><strong>Popular:</strong></li>
@@ -78,6 +79,7 @@
                 @endforeach
                 </ul>
             </div>
+            <!--End tag showing section-->
         </div>
     </div>
 

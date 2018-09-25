@@ -62,23 +62,14 @@
 			@endif
 		
 
+		<!--
 		<div class="row" id="comments">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div id="disqus_thread"></div>
-				<script>
-				var disqus_config = function () {
-				this.page.url = "{{ url('/') }}/{{$highlight_data->highlight_id}}/{{$highlight_data->url_slug}}";
-				this.page.identifier = {{$highlight_data->highlight_id}};
-				};
-				(function() {
-				var d = document, s = d.createElement('script');
-				s.src = 'https://highlightsarena-1.disqus.com/embed.js';
-				s.setAttribute('data-timestamp', +new Date());
-				(d.head || d.body).appendChild(s);
-				})();
-				</script>
-				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				If you'd like your blog to have comments and easy way to get them is through: https://disqus.com/
+				You can embed the Disqus code here for. You'll need to modify their snipped to give each post a unique ID.
+				I recommend simply using: {{$highlight_data->highlight_id}}
 			</div>
 		</div>
+		-->
 	</div>
 @endsection
