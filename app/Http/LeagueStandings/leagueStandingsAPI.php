@@ -50,6 +50,10 @@ class leagueStandingsAPI{
 			$nba_east = collect();
 			$nba_west = collect();
 
+			if(!isset($parsed_data->standing)){
+				return ['nba_east'=>null,'nba_west'=>null];
+			}
+
 			foreach($parsed_data->standing as $team){
 				if($team->conference === "EAST"){
 					$nba_east->push($team);
