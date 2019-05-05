@@ -32,7 +32,6 @@
 						<div class="col-xs-12 col-md-10">
 							<p><strong>Content URL:</strong> <input type="text" name="content_url" id="content_url" class="formWidth"></p>
 						</div>
-						
 					
 					<!-- Update Source Button -->
 					<div class="form-group">

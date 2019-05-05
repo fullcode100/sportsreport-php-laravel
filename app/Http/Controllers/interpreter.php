@@ -95,7 +95,14 @@ class interpreter extends Controller
 	}
 
 	private function gfycat_embed($gfycat_url){
-		$strip_gfycat_url = trim(substr($gfycat_url, strpos($gfycat_url, 'detail/') + 7));
+		$gfycat_url = rtrim($gfycat_url, '/');
+
+		//gfycat doesn't have a set URL structure. Sometimes the feature detail strings. Other times its a straight resource. We have to account for this.
+		if(strpos($gfycat_url, 'detail/') !== false){
+			$strip_gfycat_url = trim(substr($gfycat_url, strpos($gfycat_url, 'detail/') + 7));
+		}else{
+			$strip_gfycat_url = substr($gfycat_url, strrpos($gfycat_url, '/' )+1);
+		}
 
 		$gfycat_embed_url = 'https://gfycat.com/ifr/' . $strip_gfycat_url;
 
@@ -165,9 +172,9 @@ class interpreter extends Controller
 	}
 
 	/**
-		Deletes a highlight from the database based off the highlight ID
-		@param Request
-		@returns mixed
+	  *Deletes a highlight from the database based off the highlight ID
+	  *	@param Request
+	  *	@return mixed
 	*/
 	public function delete_highlight(Request $remove_highlight_request){
 		
