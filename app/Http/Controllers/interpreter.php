@@ -127,7 +127,12 @@ class interpreter extends Controller
 	}
 
 
-	//Takes in data from the previewed post form. Validates it, passes it off to the mediaSource function.
+	/**
+	  * Takes in data from the submitted form and previews it in the page.
+	  * This allows us to make sure everything went ok when requesting or pasing embeding data before something is posted.
+	  * @param Request
+	  * @return view
+	  **/
 	public function preview_embeded_post(Request $preview_embed_content_request){
 		
 		$embeded_content_validation = Validator::make($preview_embed_content_request->all(), [

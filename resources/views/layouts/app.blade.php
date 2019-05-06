@@ -54,7 +54,7 @@
                     @if(Auth::check())
                         <li>
                             <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                {{ Auth::user()->name }} &#9660;
+                                {{Auth::user()->name}} &#9660;
                             </a>
                         </li>
                     @endif

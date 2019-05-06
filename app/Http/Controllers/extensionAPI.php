@@ -19,11 +19,11 @@ class extensionAPI extends Controller
 
 	public function __construct()
     {
-    	//Middelware exist to allow CORS request to this specific controller.
         $this->middleware('cors');
     }
 
     public function externalAuthenticationStatus(){
+
         if(Auth::check()){
             $signed_in = ['logged_in' => true, 'user_name' => Auth::user()->name];
             $signed_in = json_encode($signed_in);
@@ -52,7 +52,12 @@ class extensionAPI extends Controller
 			return $clipping_data;
 		}
 
-		$clipping_data['return'] = $preview_embed_content_request->content_source;
+		$cache_key = 'source_' . $preview_embed_content_request->content_source . '-time_' . date('m-d-Y_H-s');
+		$cache_data = ['content_source' => $preview_embed_content_request->content_source, 'content_url' => $preview_embed_content_request->content_url];
+
+		Cache::put($cache_key, $cache_data, 21600);
+
+		$clipping_data['return'] = $cache_key;
 		$clipping_data['success'] = true;
 
 		$clipping_data = json_encode($clipping_data);

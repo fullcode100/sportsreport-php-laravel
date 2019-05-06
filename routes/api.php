@@ -17,4 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/web_clip', 'extensionAPI@cacheWebClip');
+//Limit how often someone can hit the route.
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('/api/web_clip', 'extensionAPI@cacheWebClip');
+});
+
