@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Cache;
 
 use App\highlight;
 
@@ -147,6 +148,21 @@ class interpreter extends Controller
 		}
 
 		return $this->mediaSource($preview_embed_content_request->content_source,$preview_embed_content_request->content_url);
+	}
+
+	/**
+	  * Basically a duplicate of the above function. However this is used to load cached data from the web clipper extension.
+	  * @param Request
+	  * @return view
+	  **/
+	public function web_clipper_preview($cache_key){
+		
+		if (Cache::has($cache_key)) {
+			$cached_preview = Cache::get($cache_key);
+    		return $this->mediaSource($cached_preview['content_source'],$cached_preview['content_url']);
+		}
+
+		return redirect('home')->withErrors(['msg', 'Post cannot be found.']);
 	}
 
 	//After a highlight has been previewed we'll want to do a final validation on all its information and then insert it into the database.

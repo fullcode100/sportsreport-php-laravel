@@ -65,4 +65,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/add-new-top-of-the-week','topPost@addNew');
 
     Route::get('/new_api_key', 'HomeController@updateAPIKey');
+    Route::get('/web_clip_highlight_preview/{cache_key}','interpreter@web_clipper_preview');
 });

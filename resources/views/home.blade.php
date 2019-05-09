@@ -8,6 +8,8 @@
         <div class="col-xs-12 col-md-12">
             <h2>User Dashboard</h2>
 
+            @include('common.errors')
+
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}

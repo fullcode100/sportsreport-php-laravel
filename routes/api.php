@@ -14,11 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+	dd($request);
     return $request->user();
 });
 
-//Limit how often someone can hit the route.
-Route::group(['middleware' => 'auth:api'], function () {
-    Route::post('/api/web_clip', 'extensionAPI@cacheWebClip');
-});
-
+Route::middleware('auth:api')->post('/web_clip','extensionAPI@cacheWebClip');
