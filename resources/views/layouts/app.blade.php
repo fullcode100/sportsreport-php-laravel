@@ -71,7 +71,7 @@
             </nav>
 
             <!--Show popular/used tags in the header-->
-            <div class="hidden-sm-down col-md-12 col-lg-12">
+            <div class="hidden-sm-down col-md-12 col-lg-12 pbs">
                 <ul class="center-nav-links">
                 <li><strong>Popular:</strong></li>
                 @foreach($popular_tags as $tag)
@@ -87,7 +87,7 @@
 
     <div class="container" id="footer">
         <div class="col-xs-12 col-xs-12 col-md-12 col-lg-12">
-            <p class="text-center">&copy; 2017 - Highlights Arena</p>
+            <p class="text-center">&copy; 2019 - Highlights Arena</p>
         </div>
     </div>
 </div>
