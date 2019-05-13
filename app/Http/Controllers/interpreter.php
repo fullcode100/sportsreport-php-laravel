@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Cache;
 
 use App\highlight;
 
@@ -95,7 +96,14 @@ class interpreter extends Controller
 	}
 
 	private function gfycat_embed($gfycat_url){
-		$strip_gfycat_url = trim(substr($gfycat_url, strpos($gfycat_url, 'detail/') + 7));
+		$gfycat_url = rtrim($gfycat_url, '/');
+
+		//gfycat doesn't have a set URL structure. Sometimes the feature detail strings. Other times its a straight resource. We have to account for this.
+		if(strpos($gfycat_url, 'detail/') !== false){
+			$strip_gfycat_url = trim(substr($gfycat_url, strpos($gfycat_url, 'detail/') + 7));
+		}else{
+			$strip_gfycat_url = substr($gfycat_url, strrpos($gfycat_url, '/' )+1);
+		}
 
 		$gfycat_embed_url = 'https://gfycat.com/ifr/' . $strip_gfycat_url;
 
@@ -120,7 +128,12 @@ class interpreter extends Controller
 	}
 
 
-	//Takes in data from the previewed post form. Validates it, passes it off to the mediaSource function.
+	/**
+	  * Takes in data from the submitted form and previews it in the page.
+	  * This allows us to make sure everything went ok when requesting or pasing embeding data before something is posted.
+	  * @param Request
+	  * @return view
+	  **/
 	public function preview_embeded_post(Request $preview_embed_content_request){
 		
 		$embeded_content_validation = Validator::make($preview_embed_content_request->all(), [
@@ -135,6 +148,21 @@ class interpreter extends Controller
 		}
 
 		return $this->mediaSource($preview_embed_content_request->content_source,$preview_embed_content_request->content_url);
+	}
+
+	/**
+	  * Basically a duplicate of the above function. However this is used to load cached data from the web clipper extension.
+	  * @param Request
+	  * @return view
+	  **/
+	public function web_clipper_preview($cache_key){
+		
+		if (Cache::has($cache_key)) {
+			$cached_preview = Cache::get($cache_key);
+    		return $this->mediaSource($cached_preview['content_source'],$cached_preview['content_url']);
+		}
+
+		return redirect('home')->withErrors(['msg', 'Post cannot be found.']);
 	}
 
 	//After a highlight has been previewed we'll want to do a final validation on all its information and then insert it into the database.
@@ -165,9 +193,9 @@ class interpreter extends Controller
 	}
 
 	/**
-		Deletes a highlight from the database based off the highlight ID
-		@param Request
-		@returns mixed
+	  *Deletes a highlight from the database based off the highlight ID
+	  *	@param Request
+	  *	@return mixed
 	*/
 	public function delete_highlight(Request $remove_highlight_request){
 		

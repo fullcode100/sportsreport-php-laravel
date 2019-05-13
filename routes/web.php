@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Resources\WebClipper;
+
 Route::get('/', 'highlightFeed@homePageFeed');
 Route::get('/page/{page_set}', 'highlightFeed@highlightPages');
 //If the URL is accessed without a slug this route will redirect them to that page/highlight but with a slug as part of the URL.
@@ -37,6 +39,8 @@ Route::get('/tagged/{tag_url}','highlightFeed@highlightsByTag');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/api/user_status', 'extensionAPI@externalAuthenticationStatus');
+
 Route::get('/top-of-the-week/{month}/{day}/{year}','topPost@topOfTheWeek');
 Route::get('all-top-of-the-weeks','topPost@allWeeks');
 
@@ -60,5 +64,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/add-new-top-of-the-week','topPost@addNew');
 
+    Route::get('/new_api_key', 'HomeController@updateAPIKey');
+    Route::get('/web_clip_highlight_preview/{cache_key}','interpreter@web_clipper_preview');
 });
-

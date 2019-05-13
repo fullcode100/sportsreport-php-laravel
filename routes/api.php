@@ -14,5 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+	dd($request);
     return $request->user();
 });
+
+Route::middleware('auth:api')->post('/web_clip','extensionAPI@cacheWebClip');
