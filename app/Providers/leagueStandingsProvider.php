@@ -13,7 +13,7 @@ class leagueStandingsProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->nhlStandings();
+        $this->sidebarStandings();
     }
 
     /**
@@ -26,7 +26,7 @@ class leagueStandingsProvider extends ServiceProvider
         //
     }
 
-    private function nhlStandings(){
+    private function sidebarStandings(){
         view()->composer('standingsFormats.standings','App\Http\LeagueStandings\leagueStandingsAPI');
     }
 }

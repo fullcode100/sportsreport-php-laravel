@@ -82,6 +82,16 @@ class interpreter extends Controller
 
 		$streamable_json_response = json_decode($streamable_json_response);
 
+		/*
+			Streamable attempts to embed videos at their natural size. We want to scale them down.
+			This is hacky right now for 720 and 1080 resolution videos. In the future we'll want to do better with regex matching to probably set these scales dynamicall.
+		*/
+		$streamable_json_response->html = str_replace('width="1280"','width="100%"',$streamable_json_response->html);
+		$streamable_json_response->html = str_replace('height="720"','height="550"',$streamable_json_response->html);
+
+		$streamable_json_response->html = str_replace('width="1920"','width="100%"',$streamable_json_response->html);
+		$streamable_json_response->html = str_replace('height="1080"','height="550"',$streamable_json_response->html);
+
 		return $streamable_json_response->html;
 	}
 
