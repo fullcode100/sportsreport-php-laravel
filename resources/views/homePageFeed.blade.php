@@ -3,7 +3,7 @@
 @section('content')
 	<?php
 		//These variables will filter back to the app.blade layout and be interpereted as meta data for the page.
-		$page_title = "Top plays from the NFL, MLB, NBA, NHL, and NCAA";
+		$page_title = null;
 		$page_meta_description = null;
 	?>
 

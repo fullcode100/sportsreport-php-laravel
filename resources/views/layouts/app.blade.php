@@ -9,13 +9,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!--Gets page title if one is set. Defaults otherwise.-->
-    <?php $final_page_title; ?>
-    @if(isset($page_title)) 
-        <?php $final_page_title = $page_title . " - " . config('app.name', 'Sports Highlights and Photography'); ?>
-    @else 
-        <?php $final_page_title = config('app.name', 'Sports Highlights and Photography'); ?>
-    @endif
-    <title>{{$final_page_title}}</title>
+    <?php 
+        
+    $final_page_title;
+
+    if(isset($page_title)){
+            $final_page_title = $page_title . " - " . config('app.name', 'Yet Another Highlights Arena');
+        }else{
+            $final_page_title = config('app.tagline', 'Cool Stufff and What Not') . " | " .config('app.name', 'Yet Another Highlights Arena');
+        }
+    ?>
+    <title>{{trim($final_page_title)}}</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -23,12 +27,12 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="shortcut icon" href="/favicon.ico" />
 
-    <?php $final_meta_description; 
+    <?php 
+        $final_meta_description; 
         if(isset($page_meta_description)){
            $final_meta_description =  $page_meta_description;
         }else{
-            $final_meta_description = "View a collection of some of the best highlights from around the NFL, MLB, NBA, NHL, NCAA, and whereever sports are played really.
-        Or check out the blog to our opinions on the recent happenings in the world of sports... or whatever else we feel like writing.";
+            $final_meta_description = config('app.default_meta', 'Cool Stufff and What Not');
         }
 
         $final_meta_description = trim($final_meta_description);

@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Application Name, Tagline, & Default Meta Description
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Highlights Arena'),
+    'tagline' => env('APP_TAGLINE', 'Interesting, Funny, Or Whatever Else From The Web'),
+    'default_meta' => env('APP_META', 'Highlights Arena is a web clipping application made by Jack McEachern capable or archiving and embeding content from the worlds most popular social networking and content sharing sources. Download and run your own instance of the app from JackMcEachern.com'),
 
     /*
     |--------------------------------------------------------------------------
