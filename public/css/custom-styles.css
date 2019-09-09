@@ -69,6 +69,16 @@ body{
 	transition: all .5s ease-out;
 }
 
+.single-post p{
+	max-width: 100%;
+	word-break: break-word;
+}
+
+.post-padder{
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+
 .site-branding{
 	text-align: center;
 }
@@ -355,16 +365,26 @@ body{
 
 
 
+/* Medium Devices Down */
 @media screen and (min-width: 0px) and (max-width: 767px){
 	.center-nav-links>li{
 		clear: both !important;
 	}
 }
 
+/* Tablets Only */
 
 @media screen and (min-width: 768px) and (max-width: 991px){
 	.center-nav-links>li{
 		clear: both !important;
+	}
+}
+
+/* Small Devices And Below */
+@media (max-width: 576px) {
+	.post-padder{
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 

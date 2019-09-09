@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
 				@foreach ($feed_data as $feed_item)
-					<div id="{{$feed_item->highlight_id}}" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 single-post pvm">
+					<div id="{{$feed_item->highlight_id}}" class="single-post pvm phm">
 						<h2><a href="/highlight/{{$feed_item->highlight_id}}/{{$feed_item->url_slug}}" class="title-link">{{$feed_item->highlight_title}}</a></h2>
 						<div>
 							{!!$feed_item->embed_data!!}
