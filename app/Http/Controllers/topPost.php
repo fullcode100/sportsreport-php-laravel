@@ -45,12 +45,12 @@ class topPost extends Controller
             'month' =>'required|integer|min:1|max:12',
             'day' =>'required|integer|min:1|max:31',
             'year' =>'required|integer|min:2017|max:2019',
-            'vanity_url' => 'url|nullable',
+            'vanity_url' => 'alpha_dash|nullable',
             'description' => 'string|nullable|max:500'
         ]);
 
         if ($top_of_the_week_data_validator->fails()) {
-            return back()->withInput()->withErrors($tag_data_validation);
+            return back()->withInput()->withErrors($top_of_the_week_data_validator);
         }
 
         $add_new_week = new weeklyRecap();
